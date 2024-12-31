@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>engine-combo.ac</path>
+	
+	<params>
+		<oil-temp>instrumentation/engine-combo[0]/indicated-oil-temperature-degf</oil-temp>
+		<oil-press>instrumentation/engine-combo[0]/indicated-oil-pressure-psi</oil-press>
+		<fuel-press>instrumentation/engine-combo[0]/indicated-fuel-pressure-psi</fuel-press>
+	</params>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>OilTemperatureNeedle</object-name>
+		<object-name>OilPressureNeedle</object-name>
+		<object-name>FuelPressureNeedle</object-name>
+		<emission>
+			<red>0.032</red>
+			<green>0.035</green>
+			<blue>0.035</blue>
+			<factor>
+				<expression>
+					<sum>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+					</sum>
+				</expression>
+			</factor>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>OilTemperatureNeedle</object-name>
+		<axis>
+			<object-name>OilTemperatureNeedleAxis</object-name>
+		</axis>
+		<property alias="/params/oil-temp"/>
+		<interpolation>
+			<entry>
+				<ind>50</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>250</ind>
+				<dep>120</dep>
+			</entry>
+		</interpolation>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>OilPressureNeedle</object-name>
+		<axis>
+			<object-name>OilPressureNeedleAxis</object-name>
+		</axis>
+		<property alias="/params/oil-press"/>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>200</ind>
+				<dep>180</dep>
+			</entry>
+		</interpolation>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FuelPressureNeedle</object-name>
+		<axis>
+			<object-name>FuelPressureNeedleAxis</object-name>
+			<swap-axis-direction/>
+		</axis>
+		<property alias="/params/fuel-press"/>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>25</ind>
+				<dep>180</dep>
+			</entry>
+		</interpolation>
+	</animation>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Glass</object-name>
+	</effect>
+</PropertyList>

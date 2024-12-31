@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="flaps">
+
+<!--	<channel name="Flaps">
+		<fcs_function name="fcs/flap-cmd-norm">
+			<name>Map flap command from range 0...1 (0=retract, 0.5=neutral, 1=extend) into range -1...1</name>
+			<function>
+				<product>
+					<difference>
+						<property>/controls/flight/flaps</property>
+						<value>0.5</value>
+					</difference>
+					<value>2</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="systems/flaps/actuator-cmd">
+			<name>Flap actuator command</name>
+			<default value="0"/>
+			<test logic="AND" value="1">
+				fcs/flap-cmd-norm EQ 1
+				fcs/flap-pos-norm LT 1
+			</test>
+			<test logic="AND" value="-1">
+				fcs/flap-cmd-norm EQ -1
+				fcs/flap-pos-norm GT 0
+			</test>
+		</switch>
+-->
+<property>/sim/flaps/current-setting</property>
+    <property>/sim/flaps/setting</property>
+    <property>/sim/flaps/setting[1]</property>
+    <property>/sim/flaps/setting[2]</property>
+    <property>/sim/flaps/setting[3]</property>
+    <property>/sim/flaps/setting[4]</property>
+
+ <channel name="Flaps">
+
+<kinematic name="Flaps Control">
+                <input>/controls/flight/flaps</input>
+                <traverse>
+                    <setting>
+                        <position>0</position>
+                        <time>0</time>
+                    </setting>
+                    <setting>
+                        <position>5</position>
+                        <time>3</time>
+                    </setting>
+                    <setting>
+                        <position>10</position>
+                        <time>3</time>
+                    </setting>
+                    <setting>
+                        <position>15</position>
+                        <time>3</time>
+                    </setting>
+                    <setting>
+                        <position>20</position>
+                        <time>3</time>
+                    </setting>
+                    <setting>
+                        <position>25</position>
+                        <time>3</time>
+                    </setting>
+                    <setting>
+                        <position>30</position>
+                        <time>3</time>
+                    </setting>
+                    <setting>
+                        <position>35</position>
+                        <time>3</time>
+                    </setting>
+                </traverse>
+                <output>/fdm/jsbsim/fcs/flap-pos-deg</output>
+		<output>/surface-positions/flaps-deg</output>
+            </kinematic>
+
+<aerosurface_scale name="Flap Position Normalizer">
+                <input>/fdm/jsbsim/fcs/flap-pos-deg</input>
+                <domain>
+                    <min>0</min>
+                    <max>35</max>
+                </domain>
+                <range>
+                    <min>0</min>
+                    <max>1</max>
+                </range>
+                <output>/fdm/jsbsim/fcs/flap-pos-norm</output>
+            </aerosurface_scale>
+        </channel>
+		
+</system>

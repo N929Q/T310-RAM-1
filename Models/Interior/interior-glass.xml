@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<model>
+		<name>Panel</name>
+		<path>Panel/panel-glass.xml</path>
+	</model>
+	
+	<model>
+		<name>CircuitBreakerPanel</name>
+		<path>circuit-breaker-panel/circuit-breaker-panel.xml</path>
+		<offsets>
+			<x-m>0.935</x-m>
+			<y-m>-0.597</y-m>
+			<z-m>-0.196</z-m>
+			<heading-deg>86.15</heading-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LeftPedals</name>
+		<path>pedals/pedals.xml</path>
+		<offsets>
+			<x-m>0.314</x-m>
+			<y-m>-0.304</y-m>
+			<z-m>-0.578</z-m>
+			<pitch-deg>13.3</pitch-deg>
+		</offsets>
+	</model>
+	<model>
+		<name>LeftPedals</name>
+		<path>pedals/pedals.xml</path>
+		<offsets>
+			<x-m>0.314</x-m>
+			<y-m>0.304</y-m>
+			<z-m>-0.578</z-m>
+			<pitch-deg>13.3</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>MapLight</name>
+		<path>map-light/map-light.xml</path>
+		<offsets>
+			<x-m>0.9</x-m>
+			<y-m>-0.51</y-m>
+			<z-m>0.45</z-m>
+			<roll-deg>-55</roll-deg>
+			<heading-deg>-12</heading-deg>
+			<pitch-deg>-95</pitch-deg>
+		</offsets>
+	</model>
+</PropertyList>

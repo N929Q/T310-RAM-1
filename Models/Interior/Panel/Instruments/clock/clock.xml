@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>clock.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>InHgScale</object-name>
+		<object-name>Flag</object-name>
+		<object-name>AltNeedle100</object-name>
+		<object-name>AltNeedle1000</object-name>
+		<object-name>AltNeedle10000</object-name>
+		<emission>
+			<red>0.95</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor>
+				<expression>
+					<sum>
+						<product>
+							<property>sim/model/lights/uv-instrument[0]/brightness-norm</property>
+							<value>0.58</value>
+						</product>
+						<product>
+							<property>sim/model/lights/uv-instrument[1]/brightness-norm</property>
+							<value>0.42</value>
+						</product>
+					</sum>
+				</expression>
+			</factor>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>HoursHand</object-name>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<expression>
+			<product>
+				<property>instrumentation/clock/indicated-hours</property>
+				<value>30</value>
+			</product>
+		</expression>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>MinutesHand</object-name>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<expression>
+			<product>
+				<property>instrumentation/clock/indicated-minutes</property>
+				<value>6</value>
+			</product>
+		</expression>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>SecondsHand</object-name>
+		<axis>
+			<x>-1</x>
+		</axis>
+		<expression>
+			<product>
+				<floor>
+					<sum>
+						<property>instrumentation/clock/indicated-seconds</property>
+						<value>0.5</value>
+					</sum>
+				</floor>
+				<value>6</value>
+			</product>
+		</expression>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>WindupKnob</object-name>
+		<axis>
+			<object-name>WindupKnobAxis</object-name>
+		</axis>
+		<property>instrumentation/clock/windup-norm</property>
+		<factor>1440</factor>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/clock/windup-norm</property>
+				<min>0</min>
+				<max>1</max>
+				<step>0.005</step>
+			</binding>
+		</action>
+	</animation>
+	
+	<effect>
+		<object-name>Glass</object-name>
+		<inherits-from>Effects/model-transparent</inherits-from>
+	</effect>
+</PropertyList>

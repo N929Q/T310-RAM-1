@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="gear">
+	<property value="0">gear/up-limit-pos-norm</property>
+	<property value="1">gear/down-limit-pos-norm</property>
+	<property value="0">gear/unit[0]/actuator-linkage-broken</property>
+	<property value="0">gear/unit[1]/actuator-linkage-broken</property>
+	<property value="0">gear/unit[2]/actuator-linkage-broken</property>
+	
+	<channel name="Nose wheel steering">
+		<fcs_function name="gear/unit[0]/sideforce-steer-factor">
+			<function>
+				<product>
+					<property>gear/unit[0]/side_friction_coeff</property>
+					<property>gear/unit[0]/wheel-speed-fps</property>
+					<value>0.1</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<!-- Drive the nose wheel with the rudder and brakes -->
+		<fcs_function name="fcs/steer-cmd-norm">
+			<function>
+				<quotient>
+					<table name="fcs/steer-cmd-deg">
+						<independentVar lookup="row">gear/unit[0]/sideforce-steer-factor</independentVar>
+						<independentVar lookup="column">/controls/flight/rudder</independentVar>
+						<tableData>
+							-1	0	1
+						  -1	-55	0	15
+						   0	-15	0	15
+						   1	-15	0	55
+						</tableData>
+					</table>
+					<value>55</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<pure_gain name="fcs/steer-pos-norm">
+			<input>fcs/steer-cmd-norm</input>
+			<gain>gear/unit[0]/pos-norm</gain>
+			<output>/gear/gear[0]/steering-norm</output>
+		</pure_gain>
+		
+		<pure_gain name="fcs/steer-pos-deg">
+			<input>fcs/steer-pos-norm</input>
+			<gain>55</gain>
+			<output>/gear/gear[0]/steering-deg</output>
+		</pure_gain>
+	</channel>
+	
+	<channel name="Gear compression">
+		<fcs_function name="gear/unit/compression-norm">
+			<function>
+				<table>
+					<independentVar>gear/unit/compression-ft</independentVar>
+					<tableData>
+						0			0
+						0.38711	1
+					</tableData>
+				</table>
+			</function>
+			<output>/gear/gear/compression-norm</output>
+		</fcs_function>
+		
+		<pure_gain name="gear/unit/compression-m">
+			<input>gear/unit/compression-norm</input>
+			<gain>0.11799</gain>
+			<output>/gear/gear/compression-m</output>
+		</pure_gain>
+		
+		<fcs_function name="gear/unit[1]/compression-norm">
+			<function>
+				<table>
+					<independentVar>gear/unit[1]/compression-ft</independentVar>
+					<tableData>
+						0			0
+						0.47556	1
+					</tableData>
+				</table>
+			</function>
+			<output>/gear/gear/compression-norm</output>
+		</fcs_function>
+		
+		<pure_gain name="gear/unit[1]/compression-m">
+			<input>gear/unit[1]/compression-norm</input>
+			<gain>0.14495</gain>
+			<output>/gear/gear[1]/compression-m</output>
+		</pure_gain>
+		
+		<fcs_function name="gear/unit[2]/compression-norm">
+			<function>
+				<table>
+					<independentVar>gear/unit[2]/compression-ft</independentVar>
+					<tableData>
+						0			0
+						0.47556	1
+					</tableData>
+				</table>
+			</function>
+			<output>/gear/gear/compression-norm</output>
+		</fcs_function>
+		
+		<pure_gain name="gear/unit[2]/compression-m">
+			<input>gear/unit[2]/compression-norm</input>
+			<gain>0.14495</gain>
+			<output>/gear/gear[2]/compression-m</output>
+		</pure_gain>
+	</channel>
+	
+	<channel name="Gear position">
+		<switch name="gear/up-limit-switch">
+			<name>Gear actuator upper limit switch</name>
+			<default value="0"/>
+			<test value="1">
+				gear/gear-pos-norm LE gear/up-limit-pos-norm
+			</test>
+		</switch>
+		
+		<switch name="gear/down-limit-switch">
+			<name>Gear actuator down limit switch</name>
+			<default value="0"/>
+			<test value="1">
+				gear/gear-pos-norm GE gear/down-limit-pos-norm
+			</test>
+		</switch>
+		
+		<switch name="gear/actuator-cmd">
+			<name>Actuator command</name>
+			<default value="0"/>
+			<test value="1" logic="AND">
+				gear/gear-cmd-norm EQ 1
+				gear/down-limit-switch EQ 0
+				/systems/electrical/consumers/landing-gear-motor/volts GT 12
+			</test>
+			<test value="-1" logic="AND">
+				gear/gear-cmd-norm EQ 0
+				gear/up-limit-switch EQ 0
+				/systems/electrical/consumers/landing-gear-motor/volts GT 12
+			</test>
+		</switch>
+		
+		<fcs_function name="gear/gear-pos-norm">
+			<name>Actuator position</name>
+			<function>
+				<sum>
+					<property>gear/gear-pos-norm</property>
+					<product>
+						<property>gear/actuator-cmd</property>
+						<property>simulation/channel-dt</property>
+						<quotient>
+							<property>/systems/electrical/consumers/landing-gear-motor/amps</property>
+							<property>/systems/electrical/consumers/landing-gear-motor/rated-amps</property>
+						</quotient>
+						<!-- gives 10 seconds for full extension / retraction -->
+						<value>0.1</value>
+					</product>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<switch name="gear/unit[0]/pos-norm">
+			<name>Nose gear position</name>
+			<default value="gear/unit[0]/pos-norm"/>
+			<test value="gear/gear-pos-norm">
+				gear/unit[0]/actuator-linkage-broken EQ 0
+			</test>
+		</switch>
+		<switch name="gear/unit[1]/pos-norm">
+			<name>Nose gear position</name>
+			<default value="gear/unit[1]/pos-norm"/>
+			<test value="gear/gear-pos-norm">
+				gear/unit[1]/actuator-linkage-broken EQ 0
+			</test>
+		</switch>
+		<switch name="gear/unit[2]/pos-norm">
+			<name>Nose gear position</name>
+			<default value="gear/unit[0]/pos-norm"/>
+			<test value="gear/gear-pos-norm">
+				gear/unit[2]/actuator-linkage-broken EQ 0
+			</test>
+		</switch>
+	</channel>
+</system>

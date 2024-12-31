@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<PropertyList include="c310a-set.xml">
+	<sim>
+		<description>Cessna T310R RAM IV (Half Glass)(JSBsim)</description>
+		<authors>
+			<author n="0">
+				<description>3D, Textures</description>
+				<nick>chad3006</nick>
+			</author>
+			<author n="1">
+				<description>FDM, 3D, Textures, Effects, Systems, Nasal, GUI</description>
+				<nick>TheEagle</nick>
+				<email>thefgfseagle@gmail.com</email>
+			</author>
+			<author n="2">
+				<description>FDM</description>
+				<nick>Ysop</nick>
+			</author>
+			<author n="3">
+				<description>Modification to T310R, Autopilot, Panel, fixed some things, broke some things.</description>
+				<nick>512 Colorado</nick>
+			</author>
+		</authors>
+		<aircraft-version>1.0.0</aircraft-version>
+		<status>early-production</status>
+		<minimum-fg-version>2020.4.0</minimum-fg-version>
+		
+		<rating>
+			<FDM type="int">4</FDM>
+			<systems type="int">4</systems>
+			<cockpit type="int">4</cockpit>
+			<model type="int">5</model>
+		</rating>
+		
+		<flight-model>jsb</flight-model>
+		<aero>Systems/310p-fdm</aero>
+		
+		<realism>
+			<realistic-fdm type="bool">true</realistic-fdm>
+		</realism>
+		
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Previews/preview1.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Previews/preview2.png</path>
+			</preview>
+		</previews>
+		
+		<model>
+			<path>Aircraft/c310-RAM/Models/c310p-half.xml</path>
+		</model>
+		<variant-of>c310p</variant-of>
+		<primary-set type="bool">false</primary-set>
+			<systems>
+				<autopilot>
+					<path>/Aircraft/c310-RAM/Systems/aerostar-autopilot.xml</path>
+				</autopilot>
+			</systems>
+	</sim>
+	
+	<fdm>
+		<jsbsim>
+			<aero>
+				<function>
+					<runtimeaircraftmodel>0</runtimeaircraftmodel>
+				</function>
+			</aero>
+			<systems>
+				<flaps>
+					<max-flap-pos-deg>35</max-flap-pos-deg>
+				</flaps>
+				<propulsion>
+					<prop-low-pitch type="double">12.8</prop-low-pitch>
+					<prop-low-rpm type="double">1800</prop-low-rpm>
+					<prop-high-pitch type="double">25</prop-high-pitch> <!-- guessed -->
+					<prop-high-rpm type="double">2625</prop-high-rpm>
+					<prop-feather-pitch type="double">82.6</prop-feather-pitch>
+				</propulsion>
+
+			</systems>
+		</jsbsim>
+	</fdm>
+	<nasal>
+		    <systems>
+                <file>Aircraft/Instruments-3d/kns80/KNS80.nas</file>
+            </systems>
+            <c310>
+			<file>Nasal/parts.nas</file>
+			<file>Nasal/c310-half.nas</file>
+			<file>Models/Interior/Panel/Instruments/kfc200/kfc-200.nas</file>
+			<file>Nasal/chocks.nas</file>
+			<file>Nasal/dialogs.nas</file>
+			<file>Nasal/controls.nas</file>
+			<file>Nasal/states.nas</file>
+			<file>Nasal/failures.nas</file>
+            </c310>
+	</nasal>
+	<limits>
+		<max-flap-extension-speed>
+			<flaps>0.428</flaps>
+			<speed>139</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>1</flaps>
+			<speed>139</speed>
+		</max-flap-extension-speed>
+		<max-gear-extension-speed>139</max-gear-extension-speed>
+		<max-gear-operation-speed>139</max-gear-operation-speed>
+		<max-positive-g>3.8</max-positive-g>
+		<max-negative-g>-1.52</max-negative-g>
+		<vne>224</vne>
+		<mass-and-balance>
+			<maximum-ramp-mass-lbs>5200</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>5200</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>5200</maximum-landing-mass-lbs>
+			<!--<maximum-zero-fuel-mass-lbs>3475.1</maximum-zero-fuel-mass-lbs>-->
+		</mass-and-balance>
+	</limits>
+	
+	<payload>
+		<weight n="2">
+			<name type="string">Left forward passenger</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">300.0</max-lb>
+		</weight>
+		<weight n="3">
+			<name type="string">Center forward passenger</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">300.0</max-lb>
+		</weight>
+		<weight n="4">
+			<name type="string">Right forward passenger</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">300.0</max-lb>
+		</weight>
+		<weight n="5">
+			<name type="string">Left rear passenger</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">300.0</max-lb>
+			<hidden type="bool">true</hidden>
+		</weight>
+		<weight n="6">
+			<name type="string">Right rear passenger</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">300.0</max-lb>
+			<hidden type="bool">true</hidden>
+		</weight>
+		<weight n="7">
+			<name type="string">Forward baggage</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[7]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">200.0</max-lb>
+		</weight>
+		<weight n="8">
+			<name type="string">Rear baggage</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[8]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">200.0</max-lb>
+		</weight>
+	</payload>
+</PropertyList>

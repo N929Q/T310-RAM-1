@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>manifold-pressure.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle1</object-name>
+		<object-name>Needle2</object-name>
+		<emission>
+			<red>0.032</red>
+			<green>0.035</green>
+			<blue>0.035</blue>
+			<factor>
+				<expression>
+					<sum>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+					</sum>
+				</expression>
+			</factor>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle1</object-name>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<property>instrumentation/manifold-pressure/indicated-manifold-pressure-inhg[0]</property>
+		<factor>5.4</factor>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle2</object-name>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<property>instrumentation/manifold-pressure/indicated-manifold-pressure-inhg[1]</property>
+		<factor>5.4</factor>
+	</animation>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Glass</object-name>
+	</effect>
+</PropertyList>

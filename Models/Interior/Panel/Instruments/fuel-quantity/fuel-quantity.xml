@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>fuel-quantity.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>LeftNeedle</object-name>
+		<object-name>RightNeedle</object-name>
+		<emission>
+			<red>0.032</red>
+			<green>0.035</green>
+			<blue>0.035</blue>
+			<factor>
+				<expression>
+					<sum>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+					</sum>
+				</expression>
+			</factor>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftNeedle</object-name>
+		<axis>
+			<object-name>LeftNeedleAxis</object-name>
+		</axis>
+		<property>/fuel/gal-left-sel</property>
+		<factor>-1.78</factor>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RightNeedle</object-name>
+		<axis>
+			<object-name>RightNeedleAxis</object-name>
+		</axis>
+		<property>/fuel/gal-right-sel</property>
+		<factor>1.78</factor>
+	</animation>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Glass</object-name>
+	</effect>
+</PropertyList>

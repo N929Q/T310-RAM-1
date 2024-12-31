@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>flap-pos.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<emission>
+			<red>0.032</red>
+			<green>0.035</green>
+			<blue>0.035</blue>
+			<factor>
+				<expression>
+					<sum>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+					</sum>
+				</expression>
+			</factor>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<property>instrumentation/flap-position/indicated-flap-position-deg</property>
+		<factor>4.666</factor>
+	</animation>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Glass</object-name>
+	</effect>
+</PropertyList>

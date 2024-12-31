@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>rpm.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>LeftRPMNeedle</object-name>
+		<object-name>RightRPMNeedle</object-name>
+		<emission>
+			<red>0.032</red>
+			<green>0.035</green>
+			<blue>0.035</blue>
+			<factor>
+				<expression>
+					<sum>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+					</sum>
+				</expression>
+			</factor>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftRPMNeedle</object-name>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<property>instrumentation/rpm/indicated-rpm[0]</property>
+		<factor>0.07</factor>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RightRPMNeedle</object-name>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<property>instrumentation/rpm/indicated-rpm[1]</property>
+		<factor>0.07</factor>
+	</animation>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Glass</object-name>
+	</effect>
+</PropertyList>

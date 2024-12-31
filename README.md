@@ -1,3 +1,18 @@
+# T310-RAM
+
+## DEVELOPMENT VERSION
+This is a heavily modified aircraft from my private hangar that I am making avalaible to further the development of the c310-family. The performance has been modified to match what I can find on the T310 RAM IV. Below in the C310 Family section is instructions to obtain the original aircraft.
+
+Aircraft folder needs to be c310-RAM for this version, DO NOT use directions below for obtaining the RAM IV.
+
+Exhaust smoke effect disabled for performance reasons.
+I had issues with the fuel system, it's basically modified from the c182 and doubled for twin.
+Model has 3 bladed propellers instead of 2.
+UV unwrap of exterior.
+Flaps move in 5 degree increments (I don't like to keyboard while I'm flying)
+3 panel options with working GPS & NAV
+I don't remember what else. I usually slightly modify the aircraft I like, this is my first massive modification. I broke stuff, and didn't follow conventions. I'm publishing my version because it may help the development of the c310-family below.
+
 # Cessna 310 family
 The Cessna 310 family modelled for FlightGear
 
@@ -33,6 +48,4 @@ This aircraft is currently being worked on by @ysopflying, chad3006 (on the foru
 * Systems: Propeller feathering, oil system, engine overheating, lights …
 * Equipment: Optional auxiliary fuel tanks, right landing light and rotating beacon are available
 * Some failures are implemented
-# T310-RAM
-# T310-RAM
-# T310-RAM
+

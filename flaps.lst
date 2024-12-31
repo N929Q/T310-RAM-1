@@ -1,0 +1,59 @@
+./Nasal/controls.nas:	props.globals.setDoubleValue("/controls/flight/flaps", 0.5 + (direction * 0.5));
+./Nasal/controls.nas:globals.controls.flapsDown = controls.setFlapCommand;
+./Models/Interior/circuit-breaker-panel/circuit-breaker-panel.xml:				<property>controls/circuit-breakers/flaps-motor/closed</property>
+./Models/Interior/circuit-breaker-panel/circuit-breaker-panel.xml:				<tooltip-id>flaps-circuit-breaker</tooltip-id>
+./Models/c310a.xml:			rplayer.getNode("surface-positions/flaps-deg")
+./Models/c310a.xml:		<property>surface-positions/flaps-deg</property>
+./Models/c310a.xml:		<property>surface-positions/flaps-deg</property>
+./Models/c310a.xml:		<property>surface-positions/flaps-deg</property>
+./Models/c310a.xml:		<property>surface-positions/flaps-deg</property>
+./Aero/nasa-windtunnel-data/FDM-changes-for-310A.txt:- correcting lift and drag for 45°-flaps instead of 35°-flaps
+./Systems/flaps.xml:<system name="flaps">
+./Systems/flaps.xml:						<property>/controls/flight/flaps</property>
+./Systems/flaps.xml:		<switch name="systems/flaps/actuator-cmd">
+./Systems/flaps.xml:						<property>systems/flaps/actuator-cmd</property>
+./Systems/flaps.xml:							<property>/systems/electrical/consumers/flaps-motor/amps</property>
+./Systems/flaps.xml:							<property>/systems/electrical/consumers/flaps-motor/rated-amps</property>
+./Systems/flaps.xml:						<!-- 5° degrees flaps movement per sec - gives 9 secs for full extension -->
+./Systems/flaps.xml:				<max>systems/flaps/max-flap-pos-deg</max>
+./Systems/flaps.xml:			<output>/surface-positions/flaps-deg</output>
+./Systems/flaps.xml:					<p>systems/flaps/max-flap-pos-deg</p>
+./Systems/sound.xml:   <name>flaps</name>
+./Systems/sound.xml:   <path>Sounds/flaps.wav</path>
+./Systems/310a-fdm.xml:	<system file="flaps"/>
+./Systems/310-fdm-aerodynamics.xml:			<description>additional lift flaps gt 35</description>
+./Systems/310-fdm-aerodynamics.xml:		<function name="aero/force/Drag_alpha_flaps">
+./Systems/310-fdm-aerodynamics.xml:			<description>Drag due to alpha and flaps</description>
+./Systems/310-fdm-aerodynamics.xml:			<description>additional drag flaps gt 35</description>
+./Systems/310-fdm-aerodynamics.xml:			<description>Pitch moment due to alpha,flaps,thrust state,sym</description>
+./Systems/310-fdm-aerodynamics.xml:			<description>additional pitch moment flaps gt 35</description>
+./Systems/instruments.xml:		<input>/surface-positions/flaps-deg</input>
+./Systems/310p-fdm.xml:	<system file="flaps"/>
+./Systems/electrical.xml:		<gain>/controls/circuit-breakers/flaps-motor/closed</gain>
+./Systems/electrical.xml:			<property>consumers/flaps-motor/volts</property>
+./Systems/electrical.xml:						<property>consumers/flaps-motor/volts</property>
+./Systems/electrical.xml:							<property>consumers/flaps-motor/rated-volts</property>
+./Systems/electrical.xml:							<property>consumers/flaps-motor/rated-amps</property>
+./Systems/electrical.xml:						<property>/fdm/jsbsim/systems/flaps/actuator-cmd</property>
+./Systems/electrical.xml:		<output>consumers/flaps-motor/amps</output>
+./Systems/electrical.xml:					<property>consumers/flaps-motor/amps</property>
+./Systems/310a-fdm-aerodynamics.xml:		<function name="aero/force/Drag_alpha_flaps">
+./Systems/310a-fdm-aerodynamics.xml:			<description>Drag due to alpha and flaps</description>
+./Systems/310a-fdm-aerodynamics.xml:			<description>Pitch moment due to alpha,flaps</description>
+./c310a-set.xml:				<short n="7" alias="/surface-positions/flaps-deg"/>
+./c310a-set.xml:				<flaps>
+./c310a-set.xml:				</flaps>
+./c310a-set.xml:			<flaps>0.333</flaps>
+./c310a-set.xml:			<flaps>1</flaps>
+./c310a-set.xml:			<flaps type="double">0.5</flaps>
+./c310a-set.xml:			<flaps-motor>
+./c310a-set.xml:			</flaps-motor>
+./c310a-set.xml:				<flaps-motor>
+./c310a-set.xml:				</flaps-motor>
+./States/take-off.xml:	<description type="string">Ready for takeoff, engines started, flaps set, electrics on, …</description>
+./States/approach.xml:	<description type="string">Approach state - low power, flaps 30°, landing lights extended, …</description>
+./States/cruise.xml:	<description type="string">Cruising state. Gear and flaps retracted</description>
+./c310p-set.xml:				<flaps>
+./c310p-set.xml:				</flaps>
+./c310p-set.xml:			<flaps>0.428</flaps>
+./c310p-set.xml:			<flaps>1</flaps>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>oat.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<emission>
+			<red>0.032</red>
+			<green>0.035</green>
+			<blue>0.035</blue>
+			<factor>
+				<expression>
+					<sum>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+						<product>
+							<property>systems/electrical/outputs/instrument-lights</property>
+							<value>0.5</value>
+						</product>
+					</sum>
+				</expression>
+			</factor>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<axis>
+			<object-name>NeedleAxis</object-name>
+		</axis>
+		<property>instrumentation/oat/indicated-outside-air-temperature-degf</property>
+		<interpolation>
+			<entry>
+				<ind>-50</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>120</ind>
+				<dep>110</dep>
+			</entry>
+		</interpolation>
+	</animation>
+	
+	<effect>
+		<object-name>Glass</object-name>
+		<inherits-from>Effects/model-transparent</inherits-from>
+	</effect>
+</PropertyList>

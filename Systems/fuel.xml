@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+
+<!--
+***********************************************************************************
+c172p, June 2015 
+Fuel system for 2 different engines at choice, JSBSim FDM
+***********************************************************************************
+-->
+
+<system name="fuel">
+    <property type="bool" value="0">/engines/active-engine/already-started-in-session</property>
+
+    <!-- *********************************************************************************** -->
+    <!-- Main tanks: 0 and 1, Integral 2 and 3                                                                 -->
+    <!-- Collector Tanks: 4, constant-level intermediate float chamber                       -->
+    <!-- Fuel Flow Rates in pounds per second                                                -->
+    <!-- *********************************************************************************** -->
+	<channel>
+		<switch>
+			<default value="1"/>
+			<test value="0">
+				/sim/equipment/auxiliary-fuel-tanks EQ 1
+			</test>
+			<output>/consumables/fuel/tank[2]/hidden</output>
+			<output>/consumables/fuel/tank[3]/hidden</output>
+		</switch>
+		
+		<switch name="/controls/fuel/selector[0]">
+			<default value="/controls/fuel/selector[0]"/>
+			<test value="1" logic="AND">
+				/sim/equipment/auxiliary-fuel-tanks EQ 0
+				/controls/fuel/selector[0] EQ 2
+			</test>
+		</switch>
+		
+		<switch name="/controls/fuel/selector[1]">
+			<default value="/controls/fuel/selector[1]"/>
+			<test value="1" logic="AND">
+				/sim/equipment/auxiliary-fuel-tanks EQ 0
+				/controls/fuel/selector[1] EQ 2
+			</test>
+		</switch>
+		
+        <switch name="/fuel/gal-left-sel">
+            <default value="0"/>
+            <test logic="AND" value="/consumables/fuel/tank[0]/level-gal_us">
+                /controls/fuel/selector[0] EQ 1 
+            </test>
+            <test logic="AND" value="/consumables/fuel/tank[2]/level-gal_us">
+                /controls/fuel/selector[0] EQ 2 
+            </test>
+        </switch>
+        <switch name="/fuel/gal-right-sel">
+            <default value="0"/>
+            <test logic="AND" value="/consumables/fuel/tank[1]/level-gal_us">
+                /controls/fuel/selector[1] EQ 1 
+            </test>
+            <test logic="AND" value="/consumables/fuel/tank[3]/level-gal_us">
+                /controls/fuel/selector[1] EQ 2 
+            </test>
+        </switch>
+		
+		
+<!--
+		<function name="L Fuel Indicator">
+			<interpolate1d>
+				<p>/controls/fuel/selector[0]</p>
+				<v>0</v> <v>0</v>
+				<v>1</v> <p>/consumables/fuel/tank[0]/level-gal_us</p>
+				<v>2</v> <p>/consumables/fuel/tank[2]/level-gal_us</p>
+				<v>3</v> <v>0</v>
+			</interpolate1d>
+			<output>fuel/gal-left-sel</output>
+		</function>
+		<function>
+			<name>/instrumentation/fuel/gal-right-sel</name>
+			<interpolate1d>
+				<p>/controls/fuel/selector[1]</p>
+				<v>0</v> <v>0</v>
+				<v>1</v> <p>/consumables/fuel/tank[1]/level-gal_us</p>
+				<v>2</v> <p>/consumables/fuel/tank[3]/level-gal_us</p>
+				<v>3</v> <v>0</v>
+			</interpolate1d>
+			<output>fuel/gal-right-sel</output>
+		</function>
+-->
+	</channel>
+<!--
+    <channel name="Left Float Chamber">
+        <switch name="Float Chamber From Engine 0">
+            <output>propulsion/tank[6]/priority</output>
+            <default value="0"/>
+            <test logic="AND" value="1">
+                /engines/active-engine/killed EQ 0
+            </test>
+        </switch>
+    </channel>
+    
+    <channel name="Right Float Chamber">
+        <switch name="Float Chamber From Engine 0">
+            <output>propulsion/tank[7]/priority</output>
+            <default value="0"/>
+            <test logic="AND" value="1">
+                /engines/active-engine/killed EQ 0
+            </test>
+        </switch>
+    </channel>
+-->
+
+
+    <!-- ****************************************************** -->
+    <!-- Collector Tank 6 level-maintenance                     -->
+    <!-- ****************************************************** -->
+    <channel name="To Tank6">
+        <!-- from Tank 0 (to Collector Tank 6) -->
+        <switch name="fuel/from-tank0-to-tank6">
+            <default value="0"/>
+            <test logic="AND" value="0.1">
+                /controls/fuel/selector[0] EQ 1 
+                /consumables/fuel/tank[0]/level-gal_us GT 0.5
+                /consumables/fuel/tank[6]/level-lbs LT 0.05
+                propulsion/tank[6]/priority EQ 1
+                accelerations/Nz GE 0
+                
+            </test>
+        </switch>
+
+        <!-- from Tank 2 (to Collector Tank 6) -->
+        <switch name="fuel/from-tank2-to-tank6">
+            <default value="0"/>
+            <test logic="AND" value="0.1">
+                /controls/fuel/selector[0] EQ 2 
+                /consumables/fuel/tank[2]/level-gal_us GT 0.5
+                /consumables/fuel/tank[6]/level-lbs LT 0.05
+                propulsion/tank[6]/priority EQ 1
+                accelerations/Nz GE 0
+                
+            </test>
+        </switch>
+
+        <!-- from Tank 1 (to Collector Tank 6) -->
+        <switch name="fuel/from-tank1-to-tank6">
+            <default value="0"/>
+            <test logic="AND" value="0.1">
+                /controls/fuel/selector[0] EQ 3
+                /consumables/fuel/tank[1]/level-gal_us GT 0.5
+                /consumables/fuel/tank[6]/level-lbs LT 0.05
+                propulsion/tank[6]/priority EQ 1
+                accelerations/Nz GE 0
+                
+            </test>
+        </switch>
+
+    </channel>
+
+    <!-- Total from Tank 0 and Tank 1 to Collector Tank 6 -->
+    <channel name="Total flow rate into tank 6">
+        <summer name="tank 0 1 2 to tank6">
+            <input>fuel/from-tank0-to-tank6</input>
+            <input>fuel/from-tank1-to-tank6</input>
+            <input>fuel/from-tank2-to-tank6</input>
+            <output>propulsion/tank[6]/external-flow-rate-pps</output>
+        </summer>
+    </channel>
+
+    <!-- ****************************************************** -->
+    <!-- Collector Tank 7 level-maintenance                     -->
+    <!-- ****************************************************** -->
+    <channel name="To Tank7">
+        <!-- from Tank 0 (to Collector Tank 7) -->
+        <switch name="fuel/from-tank0-to-tank7">
+            <default value="0"/>
+            <test logic="AND" value="0.1">
+                /controls/fuel/selector[1] EQ 3 
+                /consumables/fuel/tank[0]/level-gal_us GT 0.5
+                /consumables/fuel/tank[7]/level-lbs LT 0.05
+                propulsion/tank[7]/priority EQ 1
+                accelerations/Nz GE 0
+                
+            </test>
+        </switch>
+
+        <!-- from Tank 3 (to Collector Tank 7) -->
+        <switch name="fuel/from-tank3-to-tank7">
+            <default value="0"/>
+            <test logic="AND" value="0.1">
+                /controls/fuel/selector[1] EQ 2 
+                /consumables/fuel/tank[3]/level-gal_us GT 0.5
+                /consumables/fuel/tank[7]/level-lbs LT 0.05
+                propulsion/tank[7]/priority EQ 1
+                accelerations/Nz GE 0
+                
+            </test>
+        </switch>
+
+        <!-- from Tank 1 (to Collector Tank 7) -->
+        <switch name="fuel/from-tank1-to-tank7">
+            <default value="0"/>
+            <test logic="AND" value="0.1">
+                /controls/fuel/selector[1] EQ 1
+                /consumables/fuel/tank[1]/level-gal_us GT 0.5
+                /consumables/fuel/tank[7]/level-lbs LT 0.05
+                propulsion/tank[7]/priority EQ 1
+                accelerations/Nz GE 0
+                
+            </test>
+        </switch>
+
+    </channel>
+
+    <!-- Total from Tank 3 and Tank 1 to Collector Tank 7 -->
+    <channel name="Total flow rate into tank 7">
+        <summer name="tank 0 1 3 to tank7">
+            <input>fuel/from-tank0-to-tank7</input>
+            <input>fuel/from-tank1-to-tank7</input>
+            <input>fuel/from-tank3-to-tank7</input>
+            <output>propulsion/tank[7]/external-flow-rate-pps</output>
+        </summer>
+    </channel>
+
+    <!-- ****************************************************** -->
+    <!-- FLOW RATE from each MAIN TANK (consumption)            -->
+    <!-- ****************************************************** -->
+
+    <channel name="Total flow rates">
+        <summer name="fuel/tank0-flow-rate">
+            <input>-fuel/from-tank0-to-tank6</input>
+            <input>-fuel/from-tank0-to-tank7</input>
+            <output>propulsion/tank[0]/external-flow-rate-pps</output>
+        </summer>
+        <summer name="fuel/tank1-flow-rate">
+            <input>-fuel/from-tank1-to-tank7</input>
+            <input>-fuel/from-tank1-to-tank6</input>
+            <output>propulsion/tank[1]/external-flow-rate-pps</output>
+        </summer>
+
+        <summer name="fuel/tank2-flow-rate">
+            <input>-fuel/from-tank2-to-tank6</input>
+            <output>propulsion/tank[2]/external-flow-rate-pps</output>
+        </summer>
+        <summer name="fuel/tank3-flow-rate">
+            <input>-fuel/from-tank3-to-tank7</input>
+            <output>propulsion/tank[3]/external-flow-rate-pps</output>
+        </summer>
+    </channel>
+    
+
+</system>

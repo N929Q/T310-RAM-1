@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<PropertyList>
+	<default>
+		  <menu n="3">
+                <item n="0">
+                <label>Autopilot Settings</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>c310.ap_settings.open()</script>
+                    </binding>
+                </item>
+            </menu>
+		<menu n="10">
+			<label>Cessna T310R RAM IV</label>
+			<enabled type="bool">true</enabled>
+			
+			<item>
+				<label>Autostart / autostop</label>
+				<binding>
+					<command>nasal</command>
+					<script>c310.autostartstop();</script>
+				</binding>
+			</item>
+			
+			<item>
+				<label>Equipment options</label>
+				<binding>
+					<command>nasal</command>
+					<script>c310.dialogs.equipment_dialog.show();</script>
+				</binding>
+			</item>
+			
+			<item>
+				<label>Settings</label>
+				<binding>
+					<command>nasal</command>
+					<script>c310.dialogs.settings_dialog.show();</script>
+				</binding>
+			</item>
+			
+			<item>
+				<label>Parts</label>
+				<binding>
+					<command>nasal</command>
+					<script>c310.parts.dialog.show();</script>
+				</binding>
+			</item>
+			
+			<item>
+				<label>Failures</label>
+				<binding>
+					<command>nasal</command>
+					<script>c310.failures.dialog.show();</script>
+				</binding>
+			</item>
+			
+			<!--<item>
+				<label>Select Livery</label>
+				<binding>
+					<command>nasal</command>
+					<script>aircraft.livery.dialog.open()</script>
+				</binding>
+			</item>-->
+		</menu>
+	</default>
+</PropertyList>
