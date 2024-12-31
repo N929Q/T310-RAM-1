@@ -34,3 +34,4 @@ This aircraft is currently being worked on by @ysopflying, chad3006 (on the foru
 * Equipment: Optional auxiliary fuel tanks, right landing light and rotating beacon are available
 * Some failures are implemented
 # T310-RAM
+# T310-RAM
