@@ -18,7 +18,11 @@
 			</author>
 			<author n="3">
 				<description>Modification to T310R, Autopilot, Panel, fixed some things, broke some things.</description>
-				<nick>512 Colorado</nick>
+				<nick>512Colorado</nick>
+			</author>
+			<author n="4">
+				<description>Test Pilot, Panel Contributor, Bug Finder</description>
+				<nick>N929Q</nick>
 			</author>
 		</authors>
 		<aircraft-version>1.0.0</aircraft-version>
