@@ -57,13 +57,13 @@
 		</previews>
 		
 		<model>
-			<path>Aircraft/c310-RAM/Models/c310p-half.xml</path>
+			<path>Aircraft/T310-RAM/Models/c310p-half.xml</path>
 		</model>
 		<variant-of>c310p</variant-of>
 		<primary-set type="bool">false</primary-set>
 			<systems>
 				<autopilot>
-					<path>/Aircraft/c310-RAM/Systems/aerostar-autopilot.xml</path>
+					<path>/Aircraft/T310-RAM/Systems/aerostar-autopilot.xml</path>
 				</autopilot>
 			</systems>
 	</sim>

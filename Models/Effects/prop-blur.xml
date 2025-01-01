@@ -3,7 +3,7 @@
 	<path>prop-blur.ac</path>
 	
 	<params>
-		<gradient-texture>Aircraft/c310-RAM/Models/Effects/prop-blur-gradient.png</gradient-texture>
+		<gradient-texture>Aircraft/T310-RAM/Models/Effects/prop-blur-gradient.png</gradient-texture>
 		<diameter-m>1</diameter-m>
 		<num-blades>2</num-blades>
 		<rpm-property>engines/engine[0]/thruster/rpm</rpm-property>

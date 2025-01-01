@@ -1,6 +1,6 @@
 aircraft.data.save(1);
 
-aircraft.livery.init("Aircraft/c310-RAM/Models/Liveries", "sim/model/livery/name", "sim/model/livery/index");
+aircraft.livery.init("Aircraft/T310-RAM/Models/Liveries", "sim/model/livery/name", "sim/model/livery/index");
 
 parts.manager.createCategory("instruments", "Instruments")
 				.createPart("clock", "Clock", ["AT420100", "35-380004-1"], 1)
@@ -22,8 +22,7 @@ parts.manager.createCategory("instruments", "Instruments")
 
 
 
-var ap_settings = gui.Dialog.new("/sim/gui/dialogs/kfc200/dialog",
-        "Aircraft/c310-RAM/Systems/autopilot-dlg.xml");
+
 var nasal_dir = getprop("/sim/fg-root") ~ "/Aircraft/Instruments-3d/FG1000/Nasal/";
 #io.load_nasal(nasal_dir ~ 'Interfaces/GenericInterfaceController.nas', "fg1000");
 

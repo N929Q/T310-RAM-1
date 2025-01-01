@@ -5,7 +5,7 @@
 
 	<parameters>
 		<texture n="1">
-			<image>Aircraft/c310-RAM/Models/Effects/prop-blur-gradient.png</image>
+			<image>Aircraft/T310-RAM/Models/Effects/prop-blur-gradient.png</image>
 			<type>2d</type>
 			<filter>linear-mipmap-linear</filter>
 			<wrap-s>repeat</wrap-s>
@@ -92,9 +92,9 @@
 				<fragment-shader>Shaders/clustered-include.frag</fragment-shader>
 				<fragment-shader>Shaders/shadows-include.frag</fragment-shader>
 				<fragment-shader>Shaders/include_fog.frag</fragment-shader>
-				<fragment-shader>Aircraft/c310-RAM/Shaders/prop-blur.frag</fragment-shader>
+				<fragment-shader>Aircraft/T310-RAM/Shaders/prop-blur.frag</fragment-shader>
 				<vertex-shader>Shaders/shadows-include.vert</vertex-shader>
-				<vertex-shader>Aircraft/c310-RAM/Shaders/prop-blur.vert</vertex-shader>
+				<vertex-shader>Aircraft/T310-RAM/Shaders/prop-blur.vert</vertex-shader>
 			</program>
 
 			<uniform>

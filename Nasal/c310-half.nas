@@ -21,7 +21,7 @@ parts.manager.createCategory("instruments", "Instruments")
 
 
 var ap_settings = gui.Dialog.new("/sim/gui/dialogs/kfc200/dialog",
-        "Aircraft/c310-RAM/Systems/autopilot-dlg.xml");
+        "Aircraft/T310-RAM/Systems/autopilot-dlg.xml");
 var nasal_dir = getprop("/sim/fg-root") ~ "/Aircraft/Instruments-3d/FG1000/Nasal/";
 #io.load_nasal(nasal_dir ~ 'Interfaces/GenericInterfaceController.nas', "fg1000");
 
