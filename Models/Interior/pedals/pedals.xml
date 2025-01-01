@@ -66,6 +66,6 @@
 			<object-name>RightBrakeAxis</object-name>
 		</axis>
 		<property>controls/gear/brake-right</property>
-		<factor>-10</factor>
+		<factor>10</factor>
 	</animation>
 </PropertyList>

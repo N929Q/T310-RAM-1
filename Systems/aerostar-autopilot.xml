@@ -113,8 +113,8 @@
             <gamma>0.0</gamma>
             <Ti>5</Ti>
             <Td>0.08</Td>
-            <u_min>-30.0</u_min>
-            <u_max>30.0</u_max>
+            <u_min>-23.0</u_min>
+            <u_max>23.0</u_max>
         </config>
     </pid-controller>
 
@@ -218,8 +218,8 @@
             <Kp>1.0</Kp>
             
             <Ki>0.0</Ki>
-            <u_min>-30.0</u_min>
-            <u_max>42.0</u_max>
+            <u_min>-25.0</u_min>
+            <u_max>25.0</u_max>
         </config>
     </pi-simple-controller>
 
