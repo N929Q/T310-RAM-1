@@ -3,7 +3,7 @@
 ## DEVELOPMENT VERSION
 This is a heavily modified aircraft from my private hangar that I am making avalaible to further the development of the c310-family. The performance has been modified to match what I can find on the T310 RAM IV. Below in the C310 Family section is instructions to obtain the original aircraft.
 
-##Aircraft folder needs to be c310-RAM for this version, DO NOT use directions below for obtaining the RAM IV.
+## Aircraft folder needs to be c310-RAM for this version, DO NOT use directions below for obtaining the RAM IV.
 
 Exhaust smoke effect disabled for performance reasons.
 I had issues with the fuel system, it's basically modified from the c182 and doubled for twin.
