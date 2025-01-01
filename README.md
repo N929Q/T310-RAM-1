@@ -13,14 +13,22 @@ Put the contents of this repository into a directory of your choice by either
 	```
 * or downloading the repository as a ZIP file and unzipping it with your favorite archive manager into `/some/path/Aircraft/T310-RAM` (Make sure to remove the trailing `-main` from the directory name !)
 **Aircraft folder needs to be named T310-RAM for this version!**
+Paths have been fixed so Git will be able to do it's thing.
+
 This is an "as is" copy of my aircraft folder, the project name and folder name are fixed!
 
 Exhaust smoke effect disabled for performance reasons.
+
 I had issues with the fuel system, it's basically modified from the c182 and doubled for twin.
+
 Model has 3 bladed propellers instead of 2.
+
 UV unwrap of exterior.
+
 Flaps move in 5 degree increments (I don't like to keyboard while I'm flying)
+
 3 panel options with working GPS & NAV
+
 I don't remember what else. I usually slightly modify the aircraft I like, this is my first massive modification. I broke stuff, and didn't follow conventions. I'm publishing my version because it may help the development of the c310-family below.
 
 # Cessna 310 family
