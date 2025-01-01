@@ -3,6 +3,16 @@
 ## DEVELOPMENT VERSION
 This is a heavily modified aircraft from my private hangar that I am making avalaible to further the development of the c310-family. The performance has been modified to match what I can find on the T310 RAM IV. Below in the C310 Family section is instructions to obtain the original aircraft.
 
+## Installation
+
+Put the contents of this repository into a directory of your choice by either
+* `git clone`ing it and renaming to c310-RAM:
+	```sh
+	~$ cd /some/path/Aircraft
+	/some/path/Aircraft$ git clone https://github.com/N512CO/T310-RAM
+	mv T310-RAM c310-RAM
+	```
+* or downloading the repository as a ZIP file and unzipping it with your favorite archive manager into `/some/path/Aircraft/c310-RAM` (make sure to change the T to a c and remove the trailing `-main` from the directory name !)
 **Aircraft folder needs to be RENAMED c310-RAM for this version!**
 This is an "as is" copy of my aircraft folder, the project name and folder name don't match yet, apologies!
 
