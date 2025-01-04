@@ -185,18 +185,18 @@
 		<view n="0">
 			<internal type="bool">true</internal>
 			<config>
-				<x-offset-m>-0.33</x-offset-m>
-				<y-offset-m>0.35</y-offset-m>
-				<z-offset-m>1.108</z-offset-m>
+				<x-offset-m>-0.32</x-offset-m>
+				<y-offset-m>0.37</y-offset-m>
+				<z-offset-m>1.2</z-offset-m>
 				<pitch-offset-deg>-10</pitch-offset-deg>
-				<default-field-of-view-deg>78</default-field-of-view-deg>
+				<default-field-of-view-deg>86.5</default-field-of-view-deg>
 			</config>
 		</view>
 		
 		<equipment>
-			<auxiliary-fuel-tanks type="bool">false</auxiliary-fuel-tanks>
-			<right-landing-light type="bool">false</right-landing-light>
-			<rotating-beacon type="bool">false</rotating-beacon>
+			<auxiliary-fuel-tanks type="bool">true</auxiliary-fuel-tanks>
+			<right-landing-light type="bool">true</right-landing-light>
+			<rotating-beacon type="bool">true</rotating-beacon>
 		</equipment>
 		
 		<menubar include="gui/menubar.xml"/>

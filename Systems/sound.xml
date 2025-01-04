@@ -176,7 +176,7 @@
   <gear>
    <name>gear</name>
    <mode>in-transit</mode>
-   <path>Sounds/gear.wav</path>
+   <path>Aircraft/T310-RAM/Sounds/gear-warn.wav</path>
    <property>/gear/gear[0]/position-norm</property>
    <pitch>
     <internal>dt_play</internal>
@@ -233,7 +233,7 @@
   <flap>
    <name>flaps</name>
    <mode>in-transit</mode>
-   <path>Sounds/flaps.wav</path>
+   <path>Aircraft/T310-RAM/Sounds/flaps.wav</path>
    <property>/surface-positions/flap-pos-norm</property>
    <volume>
     <factor>0.45</factor>
@@ -245,7 +245,7 @@
   <wind>
    <name>wind</name>
    <mode>looped</mode>
-   <path>Sounds/wind.wav</path>
+   <path>Aircraft/T310-RAM/Sounds/wind.wav</path>
    <property>/velocities/airspeed-kt</property>
    <volume>
     <property>/position/altitude-ft</property>

@@ -37,6 +37,8 @@
 		</offsets>
 	</model>
 	
+
+    <!--
 	<model>
 		<name>MapLight</name>
 		<path>map-light/map-light.xml</path>
@@ -49,4 +51,6 @@
 			<pitch-deg>-95</pitch-deg>
 		</offsets>
 	</model>
+	-->
+	
 </PropertyList>

@@ -7,7 +7,7 @@
 	<maxhp>325</maxhp>
 	<cycles>4</cycles>
 	<cooling-factor>2.5</cooling-factor>
-	<idlerpm>500</idlerpm>
+	<idlerpm>375</idlerpm>
 	<maxrpm>2625</maxrpm>
 	<sparkfaildrop>0.1</sparkfaildrop>
 	<man-press-lag>1</man-press-lag>

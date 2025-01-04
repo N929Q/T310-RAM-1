@@ -372,15 +372,21 @@
 		</offsets>
 	</model>
 	
+
+<!--
+	
 	<model>
 		<path>Instruments/kt76a/kt76a.xml</path>
 		<offsets>
-			<x-m>0.512</x-m>
+			<x-m>0.50875</x-m>
 			<y-m>-0.0</y-m>
-			<z-m>-0.1405</z-m>
+			<z-m>-0.13</z-m>
 			<pitch-deg>-4.3</pitch-deg>
 		</offsets>
 	</model>
+-->
+	
+
 	
 	<model>
 		<path>Instruments/kfc200/fd-control.xml</path>
@@ -406,9 +412,9 @@
 	<model>
 		<path>Instruments/kns80/kns80.xml</path>
 		<offsets>
-			<x-m>0.513</x-m>
+			<x-m>0.52</x-m>
 			<y-m>0.00</y-m>
-			<z-m>-0.080</z-m>
+			<z-m>-0.098</z-m>
 			<pitch-deg>-4.3</pitch-deg>
 		</offsets>
 	</model>
@@ -515,9 +521,9 @@
 	<model>
 		<path>Instruments/vacuum/vacuum.xml</path>
 		<offsets>
-			<x-m>0.520</x-m>
-			<y-m>0.1808</y-m>
-			<z-m>-0.002</z-m>
+			<x-m>0.525</x-m>
+			<y-m>0.18</y-m>
+			<z-m>-0.00</z-m>
 			<pitch-deg>-4.3</pitch-deg>
 		</offsets>
 	</model>
@@ -527,7 +533,7 @@
 		<offsets>
 			<x-m>0.525</x-m>
 			<y-m>-0.025</y-m>
-			<z-m>-0.192</z-m>
+			<z-m>-0.185</z-m>
 			<pitch-deg>-4.3</pitch-deg>
 		</offsets>
 	</model>
@@ -543,7 +549,7 @@
 		<offsets>
 			<x-m>0.525</x-m>
 			<y-m>0.035</y-m>
-			<z-m>-0.192</z-m>
+			<z-m>-0.185</z-m>
 			<pitch-deg>-4.3</pitch-deg>
 		</offsets>
 	</model>
