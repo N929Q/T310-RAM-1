@@ -45,7 +45,7 @@
 		</location>
 		
 		<pointmass name="Pilot">
-			<weight unit="LBS">178</weight>
+			<weight unit="LBS">180</weight>
 			<location name="POINTMASS" unit="IN">
 				<x>37.05</x>
 				<y>-10.5</y>
@@ -54,7 +54,7 @@
 		</pointmass>		
 
 		<pointmass name="Copilot">
-			<weight unit="LBS">0</weight>
+			<weight unit="LBS">140</weight>
 			<location name="POINTMASS" unit="IN">
 				<x>37.05</x>
 				<y>10.5</y>
@@ -108,16 +108,16 @@
 		</pointmass>			
 		
 		<pointmass name="Forward baggage">
-			<weight unit="LBS">36</weight>
+			<weight unit="LBS">10</weight>
 			<location name="POINTMASS" unit="IN">
-				<x>-4.0</x>
+				<x>95</x>
 				<y>0</y>
 				<z>-12</z>
 			</location>
 		</pointmass>
 		
 		<pointmass name="Rear baggage">
-			<weight unit="LBS">0</weight>
+			<weight unit="LBS">10</weight>
 			<location name="POINTMASS" unit="IN">
 				<x>122.5</x>
 				<y>0</y>
@@ -193,8 +193,8 @@
 				<y>-120</y>
 				<z>-20</z>
 			</location>
-			<capacity unit="LBS">208.85</capacity>
-			<contents unit="LBS">208</contents>
+			<capacity unit="LBS">103.85</capacity>
+			<contents unit="LBS">0</contents>
 			<unusable unit="LBS">3.35</unusable>
 		</tank>
 		
@@ -204,8 +204,8 @@
 				<y>120</y>
 				<z>-20</z>
 			</location>
-			<capacity unit="LBS">208.85</capacity>
-			<contents unit="LBS">208</contents>
+			<capacity unit="LBS">103.85</capacity>
+			<contents unit="LBS">0</contents>
 			<unusable unit="LBS">3.35</unusable>
 		</tank>
 		
